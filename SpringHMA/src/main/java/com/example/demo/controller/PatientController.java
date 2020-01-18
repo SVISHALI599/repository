@@ -36,22 +36,23 @@ public class PatientController {
 		return patientService.getPatientById(id);
 	}
 
-	 @PostMapping("/setPatient")
-	  public ResponseEntity<Integer> createPatient(@RequestBody Patient patient) {
-	    int noRowsAffected = patientService.setPatient(patient);
-	    return ResponseEntity.status(HttpStatus.OK).body(noRowsAffected);
+	@PostMapping("/setPatient")
+	public ResponseEntity<Integer> createPatient(@RequestBody Patient patient) {
+		int noRowsAffected = patientService.setPatient(patient);
+		return ResponseEntity.status(HttpStatus.OK).body(noRowsAffected);
 
-	  }
+	}
 
 	@PutMapping("/deletepatient/{pk_user_id}")
 	public int deletePatient(@PathParam("pk_user_id") int pk_user_id) {
 		return patientService.deletePatient(pk_user_id);
 	}
-	 @PutMapping("/updatePatient")
-	  public ResponseEntity<Integer> updatePatient(@RequestBody Patient patient) {
-	    int status= patientService.updatePatient(patient);
-	    return ResponseEntity.status(HttpStatus.OK).body(status);
 
-	  }
-	
+	@PutMapping("/updatePatient")
+	public ResponseEntity<Integer> updatePatient(@RequestBody Patient patient) {
+		int status = patientService.updatePatient(patient);
+		return ResponseEntity.status(HttpStatus.OK).body(status);
+
+	}
+
 }
